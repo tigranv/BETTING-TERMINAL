@@ -1,3 +1,3 @@
-# BETTING-TERMINALS
+# BETTING-TERMINAL
 
 not completed!
