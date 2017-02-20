@@ -29,14 +29,18 @@ namespace TerminalStart
 
             Terminal.SignIn(name1, password1);
 
-            Terminal.AddMoney(new Money(100, Currency.AMD));
-            Terminal.ShowBallance();
-            Terminal.Bet(new Money(80, Currency.AMD));
             Terminal.ShowBallance();
 
-            Terminal.Bet(new Money(50, Currency.AMD));
-            Terminal.ShowBallance();
             Terminal.AddMoney(new Money(100, Currency.AMD));
+
+            Terminal.Bet(new Money(80, Currency.AMD));
+
+            Terminal.Bet(new Money(50, Currency.AMD));
+
+            Terminal.AddMoney(new Money(100, Currency.AMD));
+
+            Terminal.Bet(new Money(50, Currency.AMD));
+
 
 
 

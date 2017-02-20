@@ -13,13 +13,11 @@ namespace TERMINAL
             FirstName = firstName;
             LastName = lastName;
             BirthDate = birtDate;
-            iD = Guid.NewGuid();   
         }
 
         string firstName;
         string lastName;
         DateTime birthDate;
-        Guid iD;
                         
         public string FirstName
         {
@@ -61,17 +59,9 @@ namespace TERMINAL
             }
         }
 
-        public Guid ID
-        {
-            get
-            {
-                return iD;
-            }
-        }
-
         public override string ToString()
         {
-            return ($"Name: {firstName}, Surname: {lastName}, ID Number {ID}");
+            return ($" {firstName} {lastName}");
         }
         
     }

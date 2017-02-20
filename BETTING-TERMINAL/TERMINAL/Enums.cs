@@ -14,16 +14,14 @@ namespace TERMINAL
         EUR
     }
 
-    public enum TypesOfBet
+    public enum TypesOfGames
     {
-        Win,
-        Place,
-        EachWay,
-        Double,
-        Treble,
-        Accumulator,
-        Trixie,
-        Yankee,
+        Football,
+        Tennis,
+        Basketball,
+        Volleyball,
+        IceHockey,
+        Baseball,
     }
 
 }

@@ -10,6 +10,7 @@ namespace TERMINAL
     {
         public decimal Amount { get; set; }
         public Currency Curency { get; set; }
+
         public Money(decimal amount, Currency cur)
         {
             Amount = amount;
