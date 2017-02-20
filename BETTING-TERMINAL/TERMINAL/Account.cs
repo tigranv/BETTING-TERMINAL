@@ -19,14 +19,13 @@ namespace TERMINAL
             this.currency = currency;
             Balance = 0;
             password = pass;
-            Terminal.balanceRefreshe += Fill;
+            Terminal.balanceRefreshe += AccountBalanceRefresh;
         }
 
-        void Fill(object obj, EventArgs args)
+        void AccountBalanceRefresh(object obj, EventArgsBalance args)
         {
             Account CurrentAccount = obj as Account;
-            EventArgsBalance AddedMoney = args as EventArgsBalance;
-            CurrentAccount.Balance = AddedMoney.currentBalance;
+            if(CurrentAccount != null) CurrentAccount.Balance = args.currentBalance;
         }
     }
 }

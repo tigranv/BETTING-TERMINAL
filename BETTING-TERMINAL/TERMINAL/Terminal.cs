@@ -11,16 +11,16 @@ namespace TERMINAL
 
     public static class Terminal
     {
-        static EventArgsBalance CurrentBalance;
         static List<Account> AccountsData = new List<Account>();
         static bool TerminalStatus = false;
         static Account SignedAccount = null;
-        public static event EventHandler balanceRefreshe;
+        public static event EventHandler<EventArgsBalance> balanceRefreshe;
+        static decimal currentBalance = 0;
+
 
         public static void Registration(string firstName, string lastName, DateTime birtDate, Currency cur)
         {
             Player pl = new Player(firstName, lastName, birtDate);
-            CurrentBalance = new EventArgsBalance();
             string password;
             do
             {
@@ -62,8 +62,8 @@ namespace TERMINAL
             if (money.Curency != SignedAccount.currency) { Console.WriteLine($"Error(Can't Add money) Account currency is in {SignedAccount.currency}"); return; };
 
             Console.WriteLine("Add  money working");
-            CurrentBalance.currentBalance = SignedAccount.Balance + money.Amount;
-            balanceRefreshe.Invoke(SignedAccount, CurrentBalance);
+            currentBalance = SignedAccount.Balance + money.Amount;
+            balanceRefreshe.Invoke(SignedAccount, new EventArgsBalance(currentBalance));
         }
 
         public static void Bet(Money money)
@@ -74,8 +74,8 @@ namespace TERMINAL
             if(SignedAccount.Balance - money.Amount >= 0)
             {
                 Console.WriteLine("Bet");
-                CurrentBalance.currentBalance = SignedAccount.Balance - money.Amount;
-                balanceRefreshe.Invoke(SignedAccount, CurrentBalance);
+                currentBalance = SignedAccount.Balance - money.Amount;
+                balanceRefreshe.Invoke(SignedAccount, new EventArgsBalance(currentBalance));
             }
             else Console.WriteLine("You have no enough money on your account");            
         }
@@ -83,7 +83,7 @@ namespace TERMINAL
         public static void ShowBallance()
         {
             if (!TerminalStatus) { Console.WriteLine("Sign in to Bet"); return; }
-            Console.WriteLine($"your balance is {SignedAccount.Balance}");
+            Console.WriteLine($"Balance of {SignedAccount.player.FirstName} is {SignedAccount.Balance}");
             
         }
 

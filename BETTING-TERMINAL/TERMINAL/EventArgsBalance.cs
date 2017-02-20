@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace TERMINAL
 {
-    internal class EventArgsBalance: EventArgs
+    public class EventArgsBalance: EventArgs
     {
         public decimal currentBalance { get; set; }
+        public EventArgsBalance(decimal bal)
+        {
+            currentBalance = bal;
+        }
     }
 }
