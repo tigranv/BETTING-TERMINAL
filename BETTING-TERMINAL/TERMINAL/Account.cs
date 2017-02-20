@@ -11,7 +11,7 @@ namespace TERMINAL
         public Player player { get; private set; }
         public Currency currency { get; private set; }
         public decimal Balance { get; private set; }
-        private string password;
+        public string password;
 
         public Account(Player player, Currency currency, string pass)
         {

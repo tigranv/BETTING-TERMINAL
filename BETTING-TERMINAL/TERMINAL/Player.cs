@@ -71,5 +71,10 @@ namespace TERMINAL
                 return iD;
             }
         }
+
+        public override string ToString()
+        {
+            return ($"Name: {firstName}, Surname: {lastName}, ID Number {ID}");
+        }
     }
 }
