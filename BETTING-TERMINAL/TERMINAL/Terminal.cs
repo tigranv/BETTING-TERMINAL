@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace TERMINAL
 {
-    public class Terminal
+    public static class Terminal
     {
-        
+        static decimal currentBalance;
+
+        static void AddMoney(Account account, Money money)
+        {
+            currentBalance = account.Balance + money.Amount;
+
+        }
     }
 }
