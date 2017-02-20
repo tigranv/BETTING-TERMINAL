@@ -25,9 +25,18 @@ namespace TerminalStart
 
             Terminal.SignIn(name, password);
 
+            Terminal.SignOut();
+            Terminal.AddMoney(new Money(100, Currency.AMD));
+
+
             Terminal.SignIn(name, password);
 
             Terminal.AddMoney(new Money(100, Currency.AMD));
+            Terminal.Bet(new Money(80, Currency.AMD));
+            Terminal.Bet(new Money(50, Currency.AMD));
+
+
+
 
             Console.ReadKey();
         }
