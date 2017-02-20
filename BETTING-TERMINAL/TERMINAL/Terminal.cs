@@ -67,7 +67,7 @@ namespace TERMINAL
             if (!TerminalStatus) { Console.WriteLine("Error - Not Signed"); return; };
             if (money.Curency != SignedAccount.currency) { Console.WriteLine($"Error(Can't Add money) Account currency is in {SignedAccount.currency}"); return; };
             currentBalance = SignedAccount.Balance + money.Amount;
-            balanceRefreshe.Invoke(SignedAccount, new EventArgsBalance(currentBalance));
+            balanceRefreshe(SignedAccount, new EventArgsBalance(currentBalance));
             Console.WriteLine($"{money.Amount} {money.Curency} money added to Your account, Your balance is Now {SignedAccount.Balance} {money.Curency}.");
         }
 
@@ -79,7 +79,7 @@ namespace TERMINAL
             if(SignedAccount.Balance - money.Amount >= 0)
             {
                 currentBalance = SignedAccount.Balance - money.Amount;
-                balanceRefreshe.Invoke(SignedAccount, new EventArgsBalance(currentBalance));
+                balanceRefreshe(SignedAccount, new EventArgsBalance(currentBalance));
                 Console.WriteLine($"{money.Amount} {money.Curency} money beted Your balance is Now {SignedAccount.Balance} {money.Curency}.");
             }
             else Console.WriteLine("You have no enough money on your account");            
