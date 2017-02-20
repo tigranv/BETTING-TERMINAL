@@ -7,15 +7,20 @@ using System.Threading.Tasks;
 
 namespace TERMINAL
 {
+
+
     public static class Terminal
     {
-        static decimal currentBalance;
+        static EventArgsBalance CurrentBalance;
         static List<Account> AccountsData = new List<Account>();
         static bool TerminalStatus = false;
         static Account SignedAccount = null;
+        public static event EventHandler balanceRefreshe;
 
-        public static void Registration(Player pl, Currency cur)
+        public static void Registration(string firstName, string lastName, DateTime birtDate, Currency cur)
         {
+            Player pl = new Player(firstName, lastName, birtDate);
+            CurrentBalance = new EventArgsBalance();
             string password;
             do
             {
@@ -51,28 +56,35 @@ namespace TERMINAL
             SignedAccount = null;
         }
 
-
-
         public static void AddMoney(Money money)
         {
             if (!TerminalStatus) { Console.WriteLine("Sign in to Add Money"); return; };
             if (money.Curency != SignedAccount.currency) { Console.WriteLine($"Error(Can't Add money) Account currency is in {SignedAccount.currency}"); return; };
 
             Console.WriteLine("Add  money working");
-            currentBalance = SignedAccount.Balance + money.Amount;
+            CurrentBalance.currentBalance = SignedAccount.Balance + money.Amount;
+            balanceRefreshe.Invoke(SignedAccount, CurrentBalance);
         }
 
         public static void Bet(Money money)
         {
-            if (!TerminalStatus) { Console.WriteLine("Sign in to Bet"); return; };
+            if (!TerminalStatus) { Console.WriteLine("Error - Not Signed"); return; };
             if (money.Curency != SignedAccount.currency) { Console.WriteLine($"Error(Can't Bet) Account currency is in {SignedAccount.currency}"); return; };
             Console.WriteLine("Betting working");
             if(SignedAccount.Balance - money.Amount >= 0)
             {
                 Console.WriteLine("Bet");
-                currentBalance = SignedAccount.Balance - money.Amount;
+                CurrentBalance.currentBalance = SignedAccount.Balance - money.Amount;
+                balanceRefreshe.Invoke(SignedAccount, CurrentBalance);
             }
             else Console.WriteLine("You have no enough money on your account");            
+        }
+
+        public static void ShowBallance()
+        {
+            if (!TerminalStatus) { Console.WriteLine("Sign in to Bet"); return; }
+            Console.WriteLine($"your balance is {SignedAccount.Balance}");
+            
         }
 
 

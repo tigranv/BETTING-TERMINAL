@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="EventArgsBalance.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Terminal.cs" />

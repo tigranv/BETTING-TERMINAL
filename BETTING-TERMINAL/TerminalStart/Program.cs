@@ -11,29 +11,33 @@ namespace TerminalStart
     {
         static void Main(string[] args)
         {
-            Player player1 = new Player("Sashik", "Sargsyan", new DateTime(1990, 10, 15));
-            Player player2 = new Player("Robert", "Qocharyan", new DateTime(1995, 1, 5));
-
-            Terminal.Registration(player1, Currency.AMD);
-            Terminal.Registration(player2, Currency.USD);
-
+            
+            Terminal.Registration("Sashik", "Sargsyan", new DateTime(2010, 10, 15), Currency.AMD);
+            Terminal.Registration("Robert", "Qocharyan", new DateTime(1995, 1, 5), Currency.USD);
+            // passwords must be sended to emails, or messaged to phone number
             Console.WriteLine("Enter name and password to Sign in");
             Console.Write("Name - ");
-            string name = Console.ReadLine();
+            string name1 = Console.ReadLine();
             Console.Write("Password - ");
-            string password = Console.ReadLine();
+            string password1 = Console.ReadLine();
 
-            Terminal.SignIn(name, password);
+            Terminal.SignIn(name1, password1);
 
             Terminal.SignOut();
             Terminal.AddMoney(new Money(100, Currency.AMD));
 
 
-            Terminal.SignIn(name, password);
+            Terminal.SignIn(name1, password1);
 
             Terminal.AddMoney(new Money(100, Currency.AMD));
+            Terminal.ShowBallance();
             Terminal.Bet(new Money(80, Currency.AMD));
+            Terminal.ShowBallance();
+
             Terminal.Bet(new Money(50, Currency.AMD));
+            Terminal.ShowBallance();
+            Terminal.AddMoney(new Money(100, Currency.AMD));
+
 
 
 

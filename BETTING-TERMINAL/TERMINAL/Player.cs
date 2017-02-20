@@ -6,24 +6,21 @@ using System.Threading.Tasks;
 
 namespace TERMINAL
 {
-    public class Player
+    internal class Player
     {
         public Player(string firstName, string lastName, DateTime birtDate)
         {
             FirstName = firstName;
             LastName = lastName;
             BirthDate = birtDate;
-            iD = Guid.NewGuid();
-
+            iD = Guid.NewGuid();   
         }
 
         string firstName;
         string lastName;
         DateTime birthDate;
         Guid iD;
-        const string wrongValue = "wrong value";
-        DateTime wrongBirthdate = DateTime.MinValue;
-        
+                        
         public string FirstName
         {
             get
@@ -33,7 +30,7 @@ namespace TERMINAL
 
             private set
             {
-                firstName = (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(value)) ? wrongValue : value;
+                firstName = (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(value)) ? null : value;
             }
         }
 
@@ -46,7 +43,7 @@ namespace TERMINAL
 
             private set
             {
-                lastName = (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(value)) ? wrongValue : value;
+                lastName = (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(value)) ? null: value;
             }
         }
 
@@ -60,7 +57,7 @@ namespace TERMINAL
             private set
             {
                 int age = DateTime.Now.Year - value.Year;
-                birthDate = (age < 18) ? wrongBirthdate : value;
+                birthDate = (age >= 18)? DateTime.MinValue: value;
             }
         }
 
@@ -76,5 +73,6 @@ namespace TERMINAL
         {
             return ($"Name: {firstName}, Surname: {lastName}, ID Number {ID}");
         }
+        
     }
 }
