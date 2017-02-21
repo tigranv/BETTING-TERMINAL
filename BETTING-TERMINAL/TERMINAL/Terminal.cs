@@ -84,7 +84,7 @@ namespace TERMINAL
                 balanceRefreshe(SignedAccount, new EventArgsBalance(currentBalance));
                 Console.WriteLine($"{money.Amount} {money.Curency} money beted Your balance is Now {SignedAccount.Balance} {money.Curency}.");
             }
-            else Console.WriteLine($"Betting Faild: You have no enough money on your account.");            
+            else Console.WriteLine($"Betting Faild: You have no enough money on your account. ");            
         }
 
         private static string NewPassword()
@@ -103,4 +103,5 @@ namespace TERMINAL
             return new string(newpassword);
         }
     }
+
 }
