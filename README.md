@@ -57,5 +57,8 @@ namespace TerminalStart
 }
 ```
 
+> The output is:
+
+![betting 1](https://cloud.githubusercontent.com/assets/24522089/23155297/795141d8-f82b-11e6-9c5b-43ca8220b2ba.PNG)
 
 > This project is written on C# 6.0, .NET Framework 4.6 Visual Studio 2015 Comunity Edition
