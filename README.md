@@ -57,5 +57,6 @@ namespace TerminalStart
 }
 ```
 
+![betting 1](https://cloud.githubusercontent.com/assets/24522089/23155143/c0e57b0a-f82a-11e6-9ce7-633063bdd242.PNG)
 
 > This project is written on C# 6.0, .NET Framework 4.6 Visual Studio 2015 Comunity Edition
