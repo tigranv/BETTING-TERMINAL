@@ -30,7 +30,7 @@ namespace TERMINAL
 
             Account newAccount = new Account(pl, cur, password);
             AccountsData.Add(newAccount);
-            Console.WriteLine($"New Player` {pl.ToString()} Registered,\t The password is -----> {password}");
+            Console.WriteLine($"New Player {pl.ToString()} Registered: \t The password is -----> {password}");
         }
 
         public static void SignIn(string name, string pass)
@@ -39,12 +39,14 @@ namespace TERMINAL
             SignedAccount = AccountsData.Find(x => (x.player.FirstName == name) && (x.password == pass));
             if(SignedAccount != null)
             {
-                Console.WriteLine($"Player, {SignedAccount.player.ToString()} Signed In");
+                Console.WriteLine($"Player {SignedAccount.player.ToString()} Signed In");
                 TerminalStatus = true;
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Not registered account, or wrong password");
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
         }
 
@@ -52,19 +54,19 @@ namespace TERMINAL
         {
             TerminalStatus = false;
             if (SignedAccount == null) return;
-            Console.WriteLine($"Player, {SignedAccount.player.ToString()} Signed Out");
+            Console.WriteLine($"Player {SignedAccount.player.ToString()} Signed Out");
             SignedAccount = null;
         }
 
         public static void ShowBallance()
         {
-            if (!TerminalStatus) { Console.WriteLine("Sign in to Bet"); return; }
-            Console.WriteLine($"Balance of {SignedAccount.player.FirstName} is {SignedAccount.Balance}");
+            if (!TerminalStatus) { Console.WriteLine("Sign in to check balance"); return; }
+            Console.WriteLine($"Balance of {SignedAccount.player.FirstName} is {SignedAccount.Balance}{SignedAccount.currency}");
         }
 
         public static void AddMoney(Money money)
         {
-            if (!TerminalStatus) { Console.WriteLine("Error - Not Signed"); return; };
+            if (!TerminalStatus) { Console.WriteLine("Error - Adding money Faild - Not Signed Account"); return; };
             if (money.Curency != SignedAccount.currency) { Console.WriteLine($"Error(Can't Add money) Account currency is in {SignedAccount.currency}"); return; };
             currentBalance = SignedAccount.Balance + money.Amount;
             balanceRefreshe(SignedAccount, new EventArgsBalance(currentBalance));
@@ -73,16 +75,16 @@ namespace TERMINAL
 
         public static void Bet(Money money)
         {
-            if (!TerminalStatus) { Console.WriteLine("Error - Not Signed"); return; };
+            if (!TerminalStatus) { Console.WriteLine("Error - betting Faild - Not Signed Account"); return; };
             if (money.Curency != SignedAccount.currency) { Console.WriteLine($"Error(Can't Bet) Account currency is in {SignedAccount.currency}"); return; };
-            Console.WriteLine("Betting working");
-            if(SignedAccount.Balance - money.Amount >= 0)
+            Console.WriteLine($"Betting {money.Amount} {money.Curency} to . . . .");
+            if (SignedAccount.Balance - money.Amount >= 0)
             {
                 currentBalance = SignedAccount.Balance - money.Amount;
                 balanceRefreshe(SignedAccount, new EventArgsBalance(currentBalance));
                 Console.WriteLine($"{money.Amount} {money.Curency} money beted Your balance is Now {SignedAccount.Balance} {money.Curency}.");
             }
-            else Console.WriteLine("You have no enough money on your account");            
+            else Console.WriteLine($"Betting Faild: You have no enough money on your account.");            
         }
 
         private static string NewPassword()
