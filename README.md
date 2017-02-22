@@ -16,7 +16,7 @@ namespace TerminalStart
         {     
             Terminal.Registration("Sashik", "Sargsyan", new DateTime(1960, 10, 15), Currency.AMD);
             Terminal.Registration("Robert", "Qocharyan", new DateTime(1955, 1, 5), Currency.USD);
-            // passwords must be sended to emails, or messaged to phone number(not complited)
+            // passwords must be sended to emails, or messaged to phone number(Not complited)
 
             Console.WriteLine("Enter name and password to Sign in");
             Console.Write("Name - ");
