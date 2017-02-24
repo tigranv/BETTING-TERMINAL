@@ -57,7 +57,7 @@ namespace TerminalStart
 }
 ```
 
-> The Output is:
+> The output is:
 
 ![betting 1](https://cloud.githubusercontent.com/assets/24522089/23155297/795141d8-f82b-11e6-9c5b-43ca8220b2ba.PNG)
 
