@@ -26,7 +26,7 @@ namespace TerminalStart
             // Trying to add money without signing in(not permited)
             Terminal.AddMoney(new Money(100, Currency.AMD));
 
-            // TO DO: Adding advertising movie while signing in using asinc await
+            // TODO: Adding advertising movie while signing in using asinc await
 
             // Signing In again
             Terminal.SignIn(name1, password1);
