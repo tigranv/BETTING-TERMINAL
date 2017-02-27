@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TERMINAL
 {
-    internal class Account
+    class Account
     {
         public Player player { get; private set; }
         public Currency currency { get; private set; }

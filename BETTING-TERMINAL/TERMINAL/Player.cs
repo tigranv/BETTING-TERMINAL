@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TERMINAL
 {
-    internal class Player
+    class Player
     {
         public Player(string firstName, string lastName, DateTime birtDate)
         {

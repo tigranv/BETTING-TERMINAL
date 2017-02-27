@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TERMINAL
 {
-    public class AgeExeption : Exception
+    class AgeExeption : Exception
     {
         public AgeExeption() : base()
         {
