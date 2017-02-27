@@ -8,7 +8,7 @@ namespace TerminalStart
         static void Main(string[] args)
         {
             
-            Terminal.Registration("Sashik", "Sargsyan", new DateTime(1960, 10, 15), Currency.AMD);
+            Terminal.Registration("Sashik", "Sargsyan", new DateTime(2000, 10, 15), Currency.AMD);
             Terminal.Registration("Robert", "Qocharyan", new DateTime(1955, 1, 5), Currency.USD);
             // passwords must be sended to emails, or messaged to phone number(not complited)
 

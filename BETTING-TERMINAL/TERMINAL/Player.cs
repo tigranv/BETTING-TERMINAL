@@ -55,7 +55,8 @@ namespace TERMINAL
             private set
             {
                 int age = DateTime.Now.Year - value.Year;
-                birthDate = (age >= 18)? DateTime.MinValue: value;
+                if (age >= 18) birthDate = value;
+                else throw new ArgumentOutOfRangeException(FirstName, "The user is not permited to bet");
             }
         }
 

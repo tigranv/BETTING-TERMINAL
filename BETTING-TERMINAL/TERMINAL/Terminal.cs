@@ -21,17 +21,25 @@ namespace TERMINAL
 
         public static void Registration(string firstName, string lastName, DateTime birtDate, Currency cur)
         {
-            Player pl = new Player(firstName, lastName, birtDate);
-            string password;
-            do
+            try
             {
-                password = NewPassword();
-            }
-            while (AccountsData.Find(x => x.password == password) != null);
+                Player pl = new Player(firstName, lastName, birtDate);
+                string password;
+                do
+                {
+                    password = NewPassword();
+                }
+                while (AccountsData.Find(x => x.password == password) != null);
 
-            Account newAccount = new Account(pl, cur, password);
-            AccountsData.Add(newAccount);
-            Console.WriteLine($"New Player {pl.ToString()} Registered: \t The password is -----> {password}");
+                Account newAccount = new Account(pl, cur, password);
+                AccountsData.Add(newAccount);
+                Console.WriteLine($"New Player {pl.ToString()} Registered: \t The password is -----> {password}");
+
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public static void SignIn(string name, string pass)
