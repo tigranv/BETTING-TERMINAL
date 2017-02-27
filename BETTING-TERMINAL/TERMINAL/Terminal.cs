@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace TERMINAL
@@ -35,6 +36,7 @@ namespace TERMINAL
 
         public static void SignIn(string name, string pass)
         {
+            Thread.Sleep(5000);
             if (TerminalStatus) { Console.WriteLine("You can't sign in");  return; };
             SignedAccount = AccountsData.Find(x => (x.player.FirstName == name) && (x.password == pass));
             if(SignedAccount != null)
