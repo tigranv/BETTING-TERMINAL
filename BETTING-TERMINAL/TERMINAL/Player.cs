@@ -56,7 +56,11 @@ namespace TERMINAL
             {
                 int age = DateTime.Now.Year - value.Year;
                 if (age >= 18) birthDate = value;
-                else throw new ArgumentOutOfRangeException(FirstName, "The user is not permited to bet");
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    throw new AgeExeption($"The user {FirstName} {LastName} is not permitted to register!!!\nOmly persons older 18 years is permited to bet!!!");
+                }
             }
         }
 

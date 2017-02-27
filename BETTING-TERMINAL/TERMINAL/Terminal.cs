@@ -34,11 +34,14 @@ namespace TERMINAL
                 Account newAccount = new Account(pl, cur, password);
                 AccountsData.Add(newAccount);
                 Console.WriteLine($"New Player {pl.ToString()} Registered: \t The password is -----> {password}");
-
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (AgeExeption ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
         }
 
