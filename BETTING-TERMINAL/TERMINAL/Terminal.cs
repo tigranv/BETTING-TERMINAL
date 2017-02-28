@@ -49,6 +49,8 @@ namespace TERMINAL
         {
             if (TerminalStatus) { Console.WriteLine("You can't sign in");  return; };
             SignedAccount = AccountsData.Find(x => (x.player.FirstName == name) && (x.password == pass));
+            Console.WriteLine("Signing In, Please Wait. . . . ");
+            Thread.Sleep(5000);
             if(SignedAccount != null)
             {
                 Console.WriteLine($"Player {SignedAccount.player.ToString()} Signed In");
@@ -64,7 +66,6 @@ namespace TERMINAL
 
         public static void SignOut()
         {
-            Thread.Sleep(5000);
             TerminalStatus = false;
             if (SignedAccount == null) return;
             Console.WriteLine($"Player {SignedAccount.player.ToString()} Signed Out");
