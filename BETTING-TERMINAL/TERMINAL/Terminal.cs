@@ -47,10 +47,12 @@ namespace TERMINAL
 
         public static void SignIn(string name, string pass)
         {
+            Console.WriteLine("Signing In, Please Wait. . . . ");
+            Task task = new Task(Advertisements);
+            task.Start();
             if (TerminalStatus) { Console.WriteLine("You can't sign in");  return; };
             SignedAccount = AccountsData.Find(x => (x.player.FirstName == name) && (x.password == pass));
-            Console.WriteLine("Signing In, Please Wait. . . . ");
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
             if(SignedAccount != null)
             {
                 Console.WriteLine($"Player {SignedAccount.player.ToString()} Signed In");
@@ -115,6 +117,23 @@ namespace TERMINAL
                 newpassword[i] = hex[rnd.Next(0, hex.Length - 1)];
             }
             return new string(newpassword);
+        }
+
+        private static void Advertisements()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            for (int i = 0; i < 40; i++)
+            {
+                Thread.Sleep(100);
+                Console.Write("\r" + new string(' ', i) + new string("Advertisement$".ToArray()));
+            }
+            for (int i = 40; i > 0; i--)
+            {
+                Thread.Sleep(100);
+                Console.Write("\r" + new string(' ', i) + new string("Advertisement$".ToArray()));
+            }
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
     }
 
