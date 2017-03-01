@@ -50,9 +50,13 @@ namespace TERMINAL
             Console.WriteLine("Signing In, Please Wait. . . . ");
             Task task = new Task(Advertisements);
             task.Start();
+            task.Wait();
+            //// or we can use
+            //while(!task.IsCompleted)
+            //Thread.Sleep(100);
             if (TerminalStatus) { Console.WriteLine("You can't sign in");  return; };
             SignedAccount = AccountsData.Find(x => (x.player.FirstName == name) && (x.password == pass));
-            Thread.Sleep(10000);
+            
             if(SignedAccount != null)
             {
                 Console.WriteLine($"Player {SignedAccount.player.ToString()} Signed In");
