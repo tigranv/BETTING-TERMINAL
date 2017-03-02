@@ -2,7 +2,7 @@
 
 Class Library Betting Terminal Provides: Player Registration, Adding Money to Account, Betting, Checking Balance Sign in Sign out
 
-### Async Await part NOT Completed!
+### TPL part NOT Completed!
 
 ```c#
 using System;
