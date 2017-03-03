@@ -59,6 +59,6 @@ namespace TerminalStart
 
 > The output is:
 
-![betting 1](https://cloud.githubusercontent.com/assets/24522089/23155297/795141d8-f82b-11e6-9c5b-43ca8220b2ba.PNG)
+![betting_terminal](https://cloud.githubusercontent.com/assets/24522089/23565164/db905e96-0065-11e7-8bdb-4b725ffe958c.gif)
 
 > This project is written on C# 6.0, .NET Framework 4.6 Visual Studio 2015 Comunity Edition
