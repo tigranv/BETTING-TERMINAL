@@ -51,7 +51,7 @@ namespace TERMINAL
             Task task = new Task(Advertisements);
             task.Start();
             task.Wait();
-            //// or we can use
+            //// or we can use, or use cancellation token
             //while(!task.IsCompleted)
             //Thread.Sleep(100);
             if (TerminalStatus) { Console.WriteLine("You can't sign in");  return; };
@@ -109,6 +109,7 @@ namespace TERMINAL
 
         private static string NewPassword()
         {
+            //TODO: Hex password generation
             char[] newpassword = new char[4];
             string hex = "0123456789ABCDEF";
             byte[] data = new byte[newpassword.Length];
